@@ -10,4 +10,8 @@ Rails.application.routes.draw do
   # root "posts#index"
   root 'pages#home'
   get 'about', to:'pages#about'
+  # when the route is signup, I go to the user ciontroller, and the action is new
+  get 'signup', to:'users#new'
+  resources :users, except: [:new]
+
 end
