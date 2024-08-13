@@ -1,0 +1,24 @@
+<div id="page-content">
+  <h1 class="text-center mb-4"><%= @user.user_name %> 's profile</h1>
+  <div class="flickr_pagination">
+    
+    <%= will_paginate @articles, :container => false %>
+  </div>
+  <% if logged_in? && @user == current_user %>
+  <div class="text-center mt-4">
+ 
+  <%= link_to "Edit your profile", edit_user_path(@user), class: "btn btn-outline-info" %>
+
+  </div>
+  <% end %>
+
+  <%= render 'articles/article' %>
+
+  <div class="flickr_pagination mb-4">
+    
+    <%= will_paginate @articles, :container => false %>
+  </div>
+
+
+
+</div>
